@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express(); 
 const hbs = require('hbs');
+const port = process.env.PORT ||9000;
 
 app.set('view engine','hbs');
 app.use(express.static(__dirname+'/public'));
@@ -14,7 +15,7 @@ app.get('/about',(req,res)=>{
         CurrentYear : new Date().getFullYear()
     });
 })
-app.listen(9000,()=>{
-    console.log('server is running');
+app.listen(port,()=>{
+    console.log(`server is running ${port}`);
 });
 
